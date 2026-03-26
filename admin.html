@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurelio House admin dashboard demo for managing reservations, menu items, reviews, users, messages, and content.">
+  <title>Admin Dashboard | Aurelio House</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/admin.css">
+</head>
+<body data-page="admin" class="admin-body">
+  <main class="admin-shell">
+    <section id="admin-login-panel" class="admin-login-wrap">
+      <div class="admin-login-card">
+        <span class="eyebrow">Secure admin access</span>
+        <h1>Aurelio House control room</h1>
+        <p>Use the showcase credentials to access dashboard insights and content management.</p>
+        <form id="admin-login-form" class="auth-form">
+          <label>Email<input type="email" name="email" value="admin@digitquo.com" required></label>
+          <label>Password<div class="password-field"><input type="password" name="password" value="digitquo@123" required><button class="password-toggle" type="button">Show</button></div></label>
+          <button class="btn btn-primary" type="submit">Enter Dashboard</button>
+          <p id="admin-login-feedback" class="form-feedback"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="admin-app" class="admin-app hidden">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="eyebrow">Aurelio House</span><h2>Admin Panel</h2></div>
+        <nav class="admin-nav">
+          <button class="admin-nav-link active" data-admin-view="overview" type="button">Overview</button>
+          <button class="admin-nav-link" data-admin-view="reservations" type="button">Reservations</button>
+          <button class="admin-nav-link" data-admin-view="reviews" type="button">Reviews</button>
+          <button class="admin-nav-link" data-admin-view="menu" type="button">Menu</button>
+          <button class="admin-nav-link" data-admin-view="users" type="button">Users</button>
+          <button class="admin-nav-link" data-admin-view="messages" type="button">Messages</button>
+          <button class="admin-nav-link" data-admin-view="content" type="button">Content</button>
+          <button class="admin-nav-link" data-admin-view="settings" type="button">Settings</button>
+        </nav>
+        <button id="admin-logout" class="btn btn-secondary admin-logout" type="button">Logout</button>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar"><div><span class="eyebrow">Dashboard</span><h1>Restaurant operations overview</h1></div><div class="admin-topbar-actions"><div class="notification-pill">7 New notifications</div><a class="btn btn-secondary" href="./index.html">View Site</a></div></header>
+
+        <section data-admin-section="overview" class="admin-section active">
+          <div id="admin-stats" class="admin-stats"></div>
+          <div class="admin-grid"><article class="admin-card"><div class="admin-card-head"><h3>Reservation trend</h3><span>This week</span></div><div id="analytics-bars" class="analytics-bars"></div></article><article class="admin-card"><div class="admin-card-head"><h3>Notifications</h3><span>Message center</span></div><div id="notification-center" class="notification-center"></div></article></div>
+        </section>
+
+        <section data-admin-section="reservations" class="admin-section"><div class="admin-card"><div class="admin-card-head"><h3>Manage reservations</h3><span>Approve, review, and track upcoming bookings</span></div><div id="admin-reservations" class="admin-table"></div></div></section>
+        <section data-admin-section="reviews" class="admin-section"><div class="admin-card"><div class="admin-card-head"><h3>Review moderation</h3><span>Approve or remove guest reviews</span></div><div id="admin-reviews" class="admin-table"></div></div></section>
+        <section data-admin-section="menu" class="admin-section"><div class="admin-grid"><article class="admin-card"><div class="admin-card-head"><h3>Menu management</h3><span>Add new dishes or edit existing items</span></div><form id="menu-item-form" class="form-card compact"><div class="form-grid two"><label>Dish name<input type="text" name="name" required></label><label>Price<input type="number" name="price" required></label></div><div class="form-grid two"><label>Category<select name="category" required><option>Starters</option><option>Main Course</option><option>Desserts</option><option>Beverages</option><option>Special Dishes</option></select></label><label>Tags<input type="text" name="tags" placeholder="Chef recommended, spicy"></label></div><label>Description<textarea name="description" rows="4" required></textarea></label><button class="btn btn-primary" type="submit">Save Menu Item</button><p id="menu-item-feedback" class="form-feedback"></p></form></article><article class="admin-card"><div class="admin-card-head"><h3>Current menu</h3><span>Edit or remove dishes</span></div><div id="admin-menu" class="admin-table"></div></article></div></section>
+        <section data-admin-section="users" class="admin-section"><div class="admin-card"><div class="admin-card-head"><h3>Guest accounts</h3><span>Customer and member list</span></div><div id="admin-users" class="admin-table"></div></div></section>
+        <section data-admin-section="messages" class="admin-section"><div class="admin-card"><div class="admin-card-head"><h3>Inquiries and messages</h3><span>Contact submissions and newsletter leads</span></div><div id="admin-messages" class="admin-table"></div></div></section>
+        <section data-admin-section="content" class="admin-section"><div class="admin-grid"><article class="admin-card"><div class="admin-card-head"><h3>Homepage content</h3><span>Editable demo copy blocks</span></div><form id="content-form" class="form-card compact"><label>Hero title<input type="text" name="heroTitle"></label><label>Promo banner<input type="text" name="promoText"></label><label>Footer note<textarea name="footerNote" rows="3"></textarea></label><button class="btn btn-primary" type="submit">Update Content</button><p id="content-feedback" class="form-feedback"></p></form></article><article class="admin-card"><div class="admin-card-head"><h3>Current content state</h3><span>Preview of editable text</span></div><div id="content-preview" class="content-preview"></div></article></div></section>
+        <section data-admin-section="settings" class="admin-section"><div class="admin-grid"><article class="admin-card"><div class="admin-card-head"><h3>Brand settings</h3><span>Demo operational controls</span></div><form id="settings-form" class="form-card compact"><label>Reservation urgency text<input type="text" name="urgencyText"></label><label>Support email<input type="email" name="supportEmail"></label><label>Announcements<textarea name="announcement" rows="3"></textarea></label><button class="btn btn-primary" type="submit">Save Settings</button><p id="settings-feedback" class="form-feedback"></p></form></article><article class="admin-card"><div class="admin-card-head"><h3>Demo analytics</h3><span>Operational summary</span></div><ul class="settings-list"><li>Average booking lead time: 4.2 days</li><li>Review approval rate: 82%</li><li>VIP booking requests this month: 28</li><li>Newsletter conversion rate: 11.8%</li></ul></article></div></section>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

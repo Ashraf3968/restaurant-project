@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserve your table at Aurelio House with live slot selection and a polished confirmation experience.">
+  <title>Reservation | Aurelio House</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body data-page="reservation">
+  <div id="site-header"></div>
+  <main>
+    <section class="page-hero"><div class="shell reveal"><span class="eyebrow">Reservations</span><h1>Secure a polished dining experience in just a few steps.</h1><p>Choose your preferred date, select an available seating time, and share any details our guest team should prepare for.</p></div></section>
+    <section class="section"><div class="shell split-grid reservation-layout"><div class="reveal"><form id="reservation-form" class="form-card"><div class="form-grid two"><label>Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label></div><div class="form-grid two"><label>Phone<input type="tel" name="phone" required></label><label>Guests<select name="guests" required><option value="">Select</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></label></div><div class="form-grid two"><label>Date<input id="reservation-date" type="date" name="date" required></label><label>Occasion<select name="occasion"><option value="">Select occasion</option><option>Anniversary</option><option>Birthday</option><option>Business Dinner</option><option>Date Night</option><option>Private Event Inquiry</option></select></label></div><fieldset class="slot-picker"><legend>Available time slots</legend><div id="time-slots" class="slot-grid"></div></fieldset><input id="selected-time" type="hidden" name="time" required><label>Special request<textarea name="request" rows="5" placeholder="Dietary preferences, celebration details, seating requests, or accessibility notes"></textarea></label><button class="btn btn-primary" type="submit">Confirm Reservation</button><p id="reservation-feedback" class="form-feedback"></p></form></div><div class="stack-block reveal"><article class="summary-card"><span class="eyebrow">Reservation summary</span><div id="reservation-summary"><p>Select a date and seating time to preview your booking.</p></div></article><article class="summary-card urgency-card"><span class="eyebrow">Tonight's demand</span><h3>Limited seats available tonight</h3><p>Prime slots between 8:00 PM and 9:30 PM typically fill first for tasting and live music service.</p></article><article id="reservation-success" class="summary-card success-card hidden"><span class="eyebrow">Confirmed</span><h3>Your table has been reserved.</h3><p>You'll receive a confirmation email shortly with your booking details and arrival guidance.</p></article></div></div></section>
+  </main>
+  <div id="site-footer"></div>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">&#8593;</button>
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
