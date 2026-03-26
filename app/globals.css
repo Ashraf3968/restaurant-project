@@ -1,0 +1,33 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-obsidian bg-gold-glow font-body text-white antialiased;
+  background-color: #09090c;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.35));
+}
+
+input, select, textarea {
+  @apply outline-none;
+}
+
+::selection {
+  background: rgba(226, 192, 137, 0.3);
+}
+

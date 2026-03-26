@@ -1,0 +1,18 @@
+﻿'use client';
+
+import { useState } from 'react';
+import { Card, Eyebrow, PrimaryButton, Section, Shell } from '@/components/ui/primitives';
+import { useRestaurant } from '@/components/providers/restaurant-provider';
+
+export default function ContactPage() {
+  const { addMessage } = useRestaurant();
+  const [feedback, setFeedback] = useState('');
+
+  return (
+    <main>
+      <Section className="border-b border-white/10 bg-black/30 pt-24"><Shell className="space-y-5"><Eyebrow>Contact</Eyebrow><h1 className="max-w-4xl font-display text-5xl leading-none md:text-7xl">Reach the guest team for bookings, events, and special requests.</h1><p className="max-w-3xl text-lg text-mist">We respond promptly to dining inquiries, private events, media requests, and concierge arrangements.</p></Shell></Section>
+      <Section><Shell className="grid gap-8 lg:grid-cols-2"><Card className="p-7"><Eyebrow>Send a message</Eyebrow><h2 className="mt-3 font-display text-4xl">Tell us how we can help.</h2><form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={(event) => { event.preventDefault(); const formData = new FormData(event.currentTarget); addMessage({ type: 'Inquiry', name: String(formData.get('name') || ''), email: String(formData.get('email') || ''), phone: String(formData.get('phone') || ''), subject: String(formData.get('subject') || ''), message: String(formData.get('message') || '') }); event.currentTarget.reset(); setFeedback('Inquiry received. Our guest team will respond shortly.'); }}><label className="grid gap-2 text-sm text-mist">Full name<input name="name" required className="min-h-12 rounded-2xl border border-white/10 bg-white/5 px-4 text-white" /></label><label className="grid gap-2 text-sm text-mist">Email<input type="email" name="email" required className="min-h-12 rounded-2xl border border-white/10 bg-white/5 px-4 text-white" /></label><label className="grid gap-2 text-sm text-mist">Phone<input name="phone" required className="min-h-12 rounded-2xl border border-white/10 bg-white/5 px-4 text-white" /></label><label className="grid gap-2 text-sm text-mist">Subject<input name="subject" required className="min-h-12 rounded-2xl border border-white/10 bg-white/5 px-4 text-white" /></label><label className="grid gap-2 text-sm text-mist md:col-span-2">Message<textarea name="message" rows={6} required className="rounded-[24px] border border-white/10 bg-white/5 px-4 py-3 text-white" /></label><div className="md:col-span-2"><button className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-br from-[#f0cb86] to-bronze px-6 text-sm font-semibold text-obsidian">Send Inquiry</button></div></form><p className="mt-4 text-sm text-champagne">{feedback}</p></Card><div className="grid gap-4">{[['Visit us','48 Harbour Crescent, Marine District, Mumbai','Near the waterfront promenade with valet entry and private dining access.'],['Direct details','+91 22 6800 2148 · reservations@aureliohouse.com','Events: private@aureliohouse.com'],['Opening hours','Mon - Thu: 5:30 PM - 11:00 PM','Fri - Sat: 12:30 PM - 3:00 PM, 5:30 PM - 12:00 AM · Sun: 12:30 PM - 10:30 PM']].map(([eyebrow, title, copy]) => <Card key={title} className="p-6"><Eyebrow>{eyebrow}</Eyebrow><h3 className="mt-3 text-2xl font-semibold">{title}</h3><p className="mt-3 text-sm text-mist">{copy}</p></Card>)}<Card className="p-0 overflow-hidden"><iframe title="Aurelio House location" src="https://www.google.com/maps?q=Gateway%20of%20India%20Mumbai&output=embed" className="min-h-[360px] w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></Card></div></Shell></Section>
+    </main>
+  );
+}
+
