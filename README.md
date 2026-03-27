@@ -1,42 +1,35 @@
-# Aurelio House Restaurant Demo
+# Aurelio House Next.js Demo
 
-Aurelio House is a premium multi-page restaurant website and admin dashboard built as a client-demo portfolio project.
+Premium multi-page restaurant website built with Next.js 14 App Router and Tailwind CSS.
 
-## Pages
+## Routes
 
-- `index.html`
-- `about.html`
-- `menu.html`
-- `contact.html`
-- `reservation.html`
-- `auth.html`
-- `gallery.html`
-- `admin.html`
-- `privacy.html`
-- `terms.html`
-- `404.html`
+- `/`
+- `/about`
+- `/menu`
+- `/contact`
+- `/reservation`
+- `/login`
+- `/signup`
+- `/admin`
+- `/privacy`
+- `/terms`
 
-## Features
+## Run
 
-- Premium public-facing restaurant website
-- Table reservation flow with time-slot selection and confirmation UI
-- Review/testimonial system with guest submissions
-- Contact inquiries and newsletter capture
-- Login, sign up, forgot-password demo flows
-- Separate admin dashboard for reservations, menu items, reviews, users, messages, content, and settings
-- Demo state persisted in `localStorage`
-
-## Run locally
-
-Open `index.html` directly in a browser, or serve the folder with a static server:
-
-```powershell
-python -m http.server 8080
+```bash
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8080`.
+## Build
+
+```bash
+npm run build
+npm start
+```
 
 ## Admin demo credentials
 
-- Email: `admin@digitquo.com`
-- Password: `digitquo@123`
+- `admin@digitquo.com`
+- `digitquo@123`
