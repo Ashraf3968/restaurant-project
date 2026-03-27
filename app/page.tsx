@@ -16,9 +16,9 @@ export default function HomePage() {
 
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(120deg,rgba(10,10,12,0.95)_12%,rgba(10,10,12,0.62)_48%,rgba(10,10,12,0.82)_100%),radial-gradient(circle_at_80%_18%,rgba(226,192,137,0.2),transparent_16%),linear-gradient(135deg,#1a140f_0%,#090a0f_45%,#12131a_100%)] py-28 md:py-36">
+      <section className="relative min-h-screen overflow-hidden border-b border-white/10 bg-[linear-gradient(120deg,rgba(10,10,12,0.95)_12%,rgba(10,10,12,0.62)_48%,rgba(10,10,12,0.82)_100%),radial-gradient(circle_at_80%_18%,rgba(226,192,137,0.2),transparent_16%),linear-gradient(135deg,#1a140f_0%,#090a0f_45%,#12131a_100%)] py-28 md:py-36">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(10,10,12,0.45)_100%)]" />
-        <Shell className="relative grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-8 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-16">
           <div className="space-y-6">
             <Eyebrow>Waterfront dining. Curated evenings.</Eyebrow>
             <h1 className="max-w-[10ch] font-display text-5xl leading-none md:text-7xl">{state.content.heroTitle}</h1>
@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <Link href="/reservation" className="mt-5 inline-block text-sm font-semibold text-champagne">Secure your table</Link>
           </Card>
-        </Shell>
+        </div>
       </section>
 
       <Section>
